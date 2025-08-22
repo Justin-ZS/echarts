@@ -430,7 +430,8 @@ function normalizeDimensionsOption(dimensionsDefine: DimensionDefinitionLoose[])
         // User can set null in dimensions.
         // We don't auto specify name, otherwise a given name may
         // cause it to be referred unexpectedly.
-        if (item.name == null) {
+        // Also treat empty string as null/undefined since it causes mapping issues.
+        if (item.name == null || item.name === '') {
             return item;
         }
 

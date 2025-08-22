@@ -248,7 +248,7 @@ export function createDimNameMap(dimsDef: DimensionDefinitionLoose[]): HashMap<D
     for (let i = 0; i < (dimsDef || []).length; i++) {
         const dimDefItemRaw = dimsDef[i];
         const userDimName = isObject(dimDefItemRaw) ? dimDefItemRaw.name : dimDefItemRaw;
-        if (userDimName != null && dataDimNameMap.get(userDimName) == null) {
+        if (userDimName != null && userDimName !== '' && dataDimNameMap.get(userDimName) == null) {
             dataDimNameMap.set(userDimName, i);
         }
     }
